@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd     http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
+
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+
+    <bean id="springBeanFactory" class="liyu.test.tcc.spring.support.SpringBeanFactory"/>
+
+
+    <bean id="transactionConfigurator" class="liyu.test.tcc.spring.support.SpringTransactionConfigurator"
+          init-method="init"/>
+
+    <bean id="compensableTransactionAspect" class="liyu.test.tcc.spring.ConfigurableTransactionAspect"
+          init-method="init">
+        <property name="transactionConfigurator" ref="transactionConfigurator"/>
+    </bean>
+
+    <bean id="resourceCoordinatorAspect" class="liyu.test.tcc.spring.ConfigurableCoordinatorAspect"
+          init-method="init">
+        <property name="transactionConfigurator" ref="transactionConfigurator"/>
+    </bean>
+
+    <task:annotation-driven/>
+
+
+    <bean id="transactionRecovery" class="liyu.test.tcc.core.recover.TransactionRecovery">
+        <property name="transactionConfigurator" ref="transactionConfigurator"/>
+    </bean>
+
+    <bean id="recoverScheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean"/>
+
+    <bean id="recoverScheduledJob" class="liyu.test.tcc.spring.recover.RecoverScheduledJob"
+          init-method="init">
+        <property name="transactionRecovery" ref="transactionRecovery"/>
+        <property name="transactionConfigurator" ref="transactionConfigurator"/>
+        <property name="scheduler" ref="recoverScheduler"/>
+    </bean>
+
+</beans>
