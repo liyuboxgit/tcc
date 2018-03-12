@@ -27,28 +27,28 @@
     </bean>
 
     <bean id="captialTradeOrderService" class="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean">
-        <property name="serviceUrl" value="http://localhost:8080/http-capital/remoting/CapitalTradeOrderService"/>
+        <property name="serviceUrl" value="http://localhost:8081/remoting/CapitalTradeOrderService"/>
         <property name="serviceInterface"
                   value="liyu.test.tcc.http_capital_api.CapitalTradeOrderService"/>
         <property name="httpInvokerRequestExecutor" ref="httpInvokerRequestExecutor"/>
     </bean>
 
     <bean id="capitalAccountService" class="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean">
-        <property name="serviceUrl" value="http://localhost:8080/http-capital/remoting/CapitalAccountService"/>
+        <property name="serviceUrl" value="http://localhost:8081/remoting/CapitalAccountService"/>
         <property name="serviceInterface"
                   value="liyu.test.tcc.http_capital_api.CapitalAccountService"/>
         <property name="httpInvokerRequestExecutor" ref="httpInvokerRequestExecutor"/>
     </bean>
 
     <bean id="redPacketAccountService" class="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean">
-        <property name="serviceUrl" value="http://localhost:8080/http-redpacket/remoting/RedPacketAccountService"/>
+        <property name="serviceUrl" value="http://localhost:8082/remoting/RedPacketAccountService"/>
         <property name="serviceInterface"
                   value="liyu.test.tcc.http_redpacket_api.RedPacketAccountService"/>
         <property name="httpInvokerRequestExecutor" ref="httpInvokerRequestExecutor"/>
     </bean>
 
     <bean id="redPacketTradeOrderService" class="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean">
-        <property name="serviceUrl" value="http://localhost:8080/http-redpacket/remoting/RedPacketTradeOrderService"/>
+        <property name="serviceUrl" value="http://localhost:8082/remoting/RedPacketTradeOrderService"/>
         <property name="serviceInterface"
                   value="liyu.test.tcc.http_redpacket_api.RedPacketTradeOrderService"/>
         <property name="httpInvokerRequestExecutor" ref="httpInvokerRequestExecutor"/>

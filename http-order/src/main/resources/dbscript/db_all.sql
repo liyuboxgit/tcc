@@ -1,3 +1,5 @@
+-- file not execute
+rop database if exists `tcc_cap`;
 CREATE DATABASE `tcc_cap` /*!40100 DEFAULT CHARACTER SET utf8 */;
 use `tcc_cap`;
 CREATE TABLE `CAP_CAPITAL_ACCOUNT` (
@@ -22,7 +24,28 @@ CREATE TABLE `CAP_TRADE_ORDER` (
 INSERT INTO `CAP_CAPITAL_ACCOUNT`(CAPITAL_ACCOUNT_ID, BALANCE_AMOUNT, USER_ID) VALUE (1,10000,1000);
 INSERT INTO `CAP_CAPITAL_ACCOUNT`(CAPITAL_ACCOUNT_ID, BALANCE_AMOUNT, USER_ID) VALUE (2,10000,2000);
 
---------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+drop database if exists `tcc_ord`;
 CREATE DATABASE `tcc_ord` /*!40100 DEFAULT CHARACTER SET utf8 */;
 use `tcc_ord`;
 CREATE TABLE `ORD_ORDER` (
@@ -67,7 +90,30 @@ INSERT INTO `ORD_PRODUCT` (`PRODUCT_ID`,`SHOP_ID`,`PRODUCT_NAME`,`PRICE`) VALUES
 INSERT INTO `ORD_PRODUCT` (`PRODUCT_ID`,`SHOP_ID`,`PRODUCT_NAME`,`PRICE`) VALUES (2,1,'MAC Pro',10288);
 INSERT INTO `ORD_PRODUCT` (`PRODUCT_ID`,`SHOP_ID`,`PRODUCT_NAME`,`PRICE`) VALUES (3,1,'IWatch',2288);
 
-------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+drop database if exists `tcc_red`;
 CREATE DATABASE `tcc_red` /*!40100 DEFAULT CHARACTER SET utf8 */;
 use `tcc_red`;
 CREATE TABLE `RED_RED_PACKET_ACCOUNT` (
@@ -92,7 +138,29 @@ CREATE TABLE `RED_TRADE_ORDER` (
 INSERT INTO `RED_RED_PACKET_ACCOUNT` (`RED_PACKET_ACCOUNT_ID`,`BALANCE_AMOUNT`,`USER_ID`) VALUES (1,950,1000);
 INSERT INTO `RED_RED_PACKET_ACCOUNT` (`RED_PACKET_ACCOUNT_ID`,`BALANCE_AMOUNT`,`USER_ID`) VALUES (2,500,2000);
 
---------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+drop database if exists `TCC`;
 CREATE DATABASE `TCC` /*!40100 DEFAULT CHARACTER SET utf8 */;
 use `TCC`;
 CREATE TABLE `TCC_TRANSACTION_CAP` (
